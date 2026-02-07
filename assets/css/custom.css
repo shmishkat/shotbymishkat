@@ -34,11 +34,20 @@ body > header {
 }
 */
 
-/* Zoom animation for album cards on hover */
-.card {
-  transition: transform 0.3s ease-in-out;
+/* 3D Hover effect for gallery images */
+.gallery-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.gallery-item:hover {
+  transform: scale(1.08) translateY(-8px);
+  z-index: 10;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+              0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item img {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
