@@ -1,4 +1,4 @@
-baseURL = 'https://shotbymishkat.github.io/'
+baseURL = 'https://shmishkat.github.io/shotbymishkat/'
 defaultContentLanguage = "en"
 disableKinds = ["taxonomy"]
 enableRobotsTXT = true
