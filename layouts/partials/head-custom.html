@@ -1,0 +1,15 @@
+{{ $imageProtectionCSS := resources.Get "css/image-protection.css" }}
+{{ $imageProtectionJS := resources.Get "js/image-protection.js" | js.Build }}
+
+<link rel="stylesheet" href="{{ $imageProtectionCSS.RelPermalink }}">
+
+<!-- Preload script to ensure enableDownload is false -->
+<script>
+  // Ensure download is disabled before any scripts run
+  if (typeof window !== 'undefined') {
+    window.enableDownload = false;
+  }
+</script>
+
+<script src="{{ $imageProtectionJS.RelPermalink }}" defer></script>
+

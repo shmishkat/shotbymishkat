@@ -1,0 +1,48 @@
+/* Image protection CSS */
+
+/* Disable context menu on gallery images */
+.gallery-item img,
+.pswp__img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+}
+
+/* Additional protection for the lightbox display */
+.pswp__container {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* Prevent drag and drop */
+.gallery-item,
+.pswp__img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* Hide download button */
+[data-pswp-download-url],
+.pswp__button--download-button,
+a[download],
+.pswp__icn-download {
+  display: none !important;
+}
+
+/* Hide any button with download in the name/title */
+button[title*="Download"],
+a[title*="Download"],
+button[aria-label*="Download"],
+a[aria-label*="Download"],
+.pswp__element--download {
+  display: none !important;
+}
+
+/* Additional selector for PhotoSwipe order 8 button (download position) */
+.pswp__button:nth-of-type(8) {
+  display: none !important;
+}
