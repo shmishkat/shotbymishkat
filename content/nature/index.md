@@ -4,7 +4,7 @@ title: Nature
 categories: ["nature"]
 weight: 3
 params:
-  featured_image: Cog Railway Mt. Washington.jpg
+  featured_image: Daytona Beach.jpg
   theme: dark
   sort_order: desc
   sort_by: Name # Exif.Date
@@ -15,5 +15,8 @@ resources:
       New Hampshire 2025
     params:
       cover: true
-  - src: azzedine-rouichi-ZS_XuDZmxpM-unsplash.jpg
+  - src: Daytona Beach.jpg
+    title: |
+      Daytona Beach<br>
+      Florida 2025
 ---
