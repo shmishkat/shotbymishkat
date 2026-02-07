@@ -1,0 +1,12 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Shot By Mishkat'
+theme = 'gallery'
+
+# Gallery theme configuration
+[params]
+description = 'Photography Portfolio'
+author = 'Shot By Mishkat'
+
+[outputs]
+home = ['HTML', 'JSON']
