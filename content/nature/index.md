@@ -11,7 +11,7 @@ params:
 resources:
   - src: Cog Railway Mt. Washington.jpg
     title: |
-      The Mt. Washington Cog Railway
+      The Mt. Washington Cog Railway<br>
       New Hampshire 2025
     params:
       cover: true
