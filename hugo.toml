@@ -14,14 +14,14 @@ theme = "gallery"
   title = "Shot By Mishkat"
   enableDownload = false
   [params.author]
-    email = "shotbymishkat@gmail.com"
+    email = "mishkat@shotbymishkat.com"
     name = "Shot By Mishkat"
   [params.socialIcons]
     instagram = "https://www.instagram.com/shotbymishkat/"
     #facebook = "https://www.facebook.com/"
     #github = "https://github.com/"
     #youtube = "https://www.youtube.com/"
-    email = "mailto:shotbymishkat@gmail.com"
+    email = "mailto:mishkat@shotbymishkat.com"
     #website = "https://example.com"
     #mastodon = "https://example.com"
     #pixelfed = "https://example.com"
