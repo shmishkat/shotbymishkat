@@ -56,3 +56,5 @@ theme = "gallery"
 [services]
   [services.rss]
     limit = 100
+  [services.googleAnalytics]
+    ID = "G-GNC8LTQS5Q"

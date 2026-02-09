@@ -13,3 +13,131 @@
 
 <script src="{{ $imageProtectionJS.RelPermalink }}" defer></script>
 
+{{ if site.Config.Services.GoogleAnalytics.ID }}
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.Config.Services.GoogleAnalytics.ID }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{ site.Config.Services.GoogleAnalytics.ID }}', {
+    'send_page_view': true,
+    'anonymize_ip': true
+  });
+
+  // Custom event tracking for photo views in PhotoSwipe lightbox
+  document.addEventListener('DOMContentLoaded', function() {
+    // Track category button clicks
+    const categoryButtons = document.querySelectorAll('.categories a, nav a[href*="/nature"], nav a[href*="/history"]');
+    categoryButtons.forEach(function(button) {
+      button.addEventListener('click', function(e) {
+        const categoryName = this.textContent.trim() || this.href.split('/').filter(Boolean).pop();
+        gtag('event', 'category_click', {
+          'category_name': categoryName,
+          'link_url': this.href
+        });
+      });
+    });
+
+    // Track social media clicks
+    const socialLinks = document.querySelectorAll('a[href*="instagram.com"], a[href*="mailto:"]');
+    socialLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        const platform = this.href.includes('instagram') ? 'Instagram' : 
+                        this.href.includes('mailto') ? 'Email' : 'Other';
+        gtag('event', 'social_click', {
+          'platform': platform,
+          'link_url': this.href
+        });
+      });
+    });
+
+    // Listen for PhotoSwipe initialization
+    let photoStartTime = null;
+    let currentPhotoName = null;
+
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        mutation.addedNodes.forEach(function(node) {
+          if (node.classList && node.classList.contains('pswp')) {
+            // PhotoSwipe lightbox opened
+            const pswp = node;
+            
+            // Track initial photo view
+            setTimeout(function() {
+              const currentSlide = pswp.querySelector('.pswp__item--active');
+              if (currentSlide) {
+                const img = currentSlide.querySelector('img');
+                if (img && img.alt) {
+                  currentPhotoName = img.alt;
+                  photoStartTime = Date.now();
+                  
+                  gtag('event', 'photo_view', {
+                    'photo_name': img.alt,
+                    'category': window.location.pathname
+                  });
+                }
+              }
+            }, 300);
+
+            // Track navigation between photos and viewing time
+            let lastViewedPhoto = '';
+            const intervalId = setInterval(function() {
+              const currentSlide = pswp.querySelector('.pswp__item--active');
+              if (currentSlide) {
+                const img = currentSlide.querySelector('img');
+                if (img && img.alt && img.alt !== lastViewedPhoto) {
+                  // Track time spent on previous photo
+                  if (lastViewedPhoto && photoStartTime) {
+                    const viewDuration = Math.round((Date.now() - photoStartTime) / 1000);
+                    gtag('event', 'photo_interaction_time', {
+                      'photo_name': currentPhotoName,
+                      'duration_seconds': viewDuration,
+                      'category': window.location.pathname
+                    });
+                  }
+                  
+                  // Start tracking new photo
+                  lastViewedPhoto = img.alt;
+                  currentPhotoName = img.alt;
+                  photoStartTime = Date.now();
+                  
+                  gtag('event', 'photo_view', {
+                    'photo_name': img.alt,
+                    'category': window.location.pathname
+                  });
+                }
+              }
+              
+              // Stop tracking when lightbox is closed
+              if (!document.body.classList.contains('pswp-open')) {
+                // Track final photo viewing time
+                if (currentPhotoName && photoStartTime) {
+                  const viewDuration = Math.round((Date.now() - photoStartTime) / 1000);
+                  gtag('event', 'photo_interaction_time', {
+                    'photo_name': currentPhotoName,
+                    'duration_seconds': viewDuration,
+                    'category': window.location.pathname
+                  });
+                }
+                
+                clearInterval(intervalId);
+                lastViewedPhoto = '';
+                currentPhotoName = null;
+                photoStartTime = null;
+              }
+            }, 500);
+          }
+        });
+      });
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: false
+    });
+  });
+</script>
+{{ end }}
+
