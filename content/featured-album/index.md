@@ -6,7 +6,7 @@ params:
   private: true # do not show in list, only as feature
 description: Aerial view of ocean waves at Daytona Beach.
 resources:
-  - src: ../nature/Daytona Beach.jpg
+  - src: ../nature/Daytona Beach Florida.jpg
     params:
       cover: true
 ---
