@@ -4,7 +4,7 @@ A photography portfolio website showcasing nature, historical, and travel photog
 
 ## Live Site
 
-Visit the site at: [https://shmishkat.github.io/shotbymishkat/](https://shmishkat.github.io/shotbymishkat/)
+Visit the site at: [https://shotbymishkat.com/](https://shotbymishkat.com/)
 
 ## Built With
 
