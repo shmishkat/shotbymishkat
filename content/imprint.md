@@ -14,7 +14,7 @@ menu:
 **Shot By Mishkat**  
 Photography Portfolio
 
-**Email:** mishkat@shotbymishkat.com
+**Email:** mishkat[at]shotbymishkat[dot]com
 
 ## Contact Information
 
