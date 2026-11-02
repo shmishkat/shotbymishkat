@@ -47,12 +47,6 @@ theme = "gallery"
     disableLatLong = true
     includeFields = "ImageDescription|Orientation"
 
-[menu]
-  [[menu.footer]]
-    name = "© 2026 Shot By Mishkat"
-    url = "/license/"
-    weight = 1
-
 [services]
   [services.rss]
     limit = 100
