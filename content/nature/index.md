@@ -4,11 +4,18 @@ title: Nature
 categories: ["nature"]
 weight: 3
 params:
-  featured_image: Daytona Beach Florida.jpg
+  featured_image: Horseshoe Bend.jpg
   theme: dark
   sort_order: desc
   sort_by: Name # Exif.Date
 resources:
+  - src: Horseshoe Bend.jpg
+    title: |
+      Horseshoe Bend<br>
+      Page, Arizona 2026
+    params:
+      cover: true
+      caption: Just south of Page, the Colorado River makes a 270-degree turn around a sandstone cliff, nearly 1,000 feet below the overlook. Over millions of years, the river cut deeper into the rising Colorado Plateau, keeping its winding course as it carved through layers of sandstone. This formation, known as an entrenched meander, lies within Glen Canyon National Recreation Area, about nine miles upstream from where Grand Canyon National Park begins.
   - src: Cog Railway Mt. Washington.jpg
     title: |
       The Mt. Washington Cog Railway<br>
