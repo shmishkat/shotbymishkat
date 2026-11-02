@@ -7,7 +7,7 @@ params:
   featured_image: Kamlapur Railway Station.jpg
   theme: dark
   sort_order: desc
-  sort_by: Name # Exif.Date
+  sort_by: Date
 resources:
   - src: Kamlapur Railway Station.jpg
     title: |
@@ -15,4 +15,5 @@ resources:
       Dhaka, Bangladesh 2016
     params:
       cover: true
+      date: 2016-01-01
 ---
