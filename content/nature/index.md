@@ -22,7 +22,6 @@ resources:
       The Mt. Washington Cog Railway<br>
       New Hampshire 2025
     params:
-      cover: true
       date: 2025-09-29
   - src: Daytona Beach Florida.jpg
     title: |
